@@ -1,0 +1,138 @@
+---
+import Layout from "../layouts/Layout.astro";
+const title = "Lettre de Motivation";
+const info = {
+    society: "[Nom de l'Entreprise]",
+	responsable: "[Nom du recruteur]",
+    address: "[Adresse de l'Entreprise]",
+	city: 'Ville, Code Postal',
+	post: '[Nom du Post]',
+	diploma: 'Développement Web',
+	ref: "01010",
+	org: "Actiris",
+    date: "24/04/2024",
+    greet: "Madame, Monsieur,"
+}
+const content =[
+	
+	`Je me permet de vous adresser ma candidature pour le post de ${info.post} au sens de votre entreprise, 
+	 suite à votre référence N°: ${info.ref} d' ${info.org}. Attiré par votre vision novatrice et votre réputation d'excellence dans le domaine du ${info.diploma},
+	 je suis convaincu que mon profil et mes compétences pourraient apporter une valeur ajoutée à votre équipe.`,
+
+	 `Malgré le fait que je n'ai pas encore eu l'opportunité de travailler professionnellement en tant que ${info.post},
+	 je possède une solide base de connaissances dans ce domaine. Ayant consacré de nombreuses heures à l'auto-apprentissage et à la pratique,
+	 j'ai acquis une expertise significative dans les langages et technologies essentiels au ${info.diploma}, notamment HTML, CSS et JavaScript. De plus, je 
+	 suis familier avec des frameworks tels que Astro, Express, Bootstrap et bibliothèques comme GitHub, Markdown et Json et la connaissances en MongoDb et MySQL.`,
+
+	 `Mon parcours académique dans ${info.post} m'a également permis de développer des compétences en analyse, résolution de problèmes, structures de projets et aussi à des qualités essentielles 
+	 pour réussir dans la domaine du ${info.diploma}. Ma capacité à apprendre rapidement de nouvelles technologies et concepts me permettrait de m'adapter efficacement à
+	 l'environnement de votre entreprise et d'apporter des solutions innovantes à vos projets.`,
+
+	 `Je suis passionné par le ${info.diploma} et je suis constamment à l'affût des dernières tendances et des meilleures pratiques de l'industrie. 
+	 Je suis convaincu que mon enthousiasme, ma détermination et mon désir d'apprendre pourraient contribuer de manière significative à la réussite de votre équipe.`, 
+
+	`Je serais ravi de discuter avec vous de ma candidature et de mes perspective d'avenir au sein de votre entreprise.
+	Je suis disponible pour un entretien à votre convenance et je vous remercie par avance de l'attention que vous porterez à ma candidature.`,
+	// "Conscient des implications financières liées à l’engagement d’un nouveau collaborateur, je suis disposé à vous offrir toutes les aides a l’emploi dont je peux bénéficier. Par exemple, nous pourrions envisager de débuter par un contrat de type FPI  (Stage rémunéré), accompagné d’un plan ACTIVA, Je remplis en effet les critères d’éligibilité au plan ACTIVA, qui représente l’une des aides les plus avantageuses disponibles sur le marché de l’emploi. Je suis ouverte à discuter de différentes options et à trouver ensemble la solution la plus appropriée pour faciliter notre collaboration.  Je suis disponible par téléphone au +32 (0).479.069.836 ou par e-mail à jescordova@hotmail.com.",
+]
+const sign = [
+	"Je vous prie d’agréer, Madame, Monsieur, l’expression de mes salutations distinguées.",
+	"Cordialement,",
+	"Jesús Córdova Lizano",
+    "+32 479 069 836",
+	`${info.post}`
+]
+---
+
+<Layout title={title}>
+    <section class="col-lg-9">
+        <ul class="section-header">
+            <li><span>{info.date}</span><h1>{info.society}</h1></li>
+            <li><h3>{info.responsable}</h3></li>
+            <li>{info.address}</li>
+            <li>{info.city}</li>
+        </ul>
+        <ul class="section-body">
+            <li><strong>Objet</strong>: Candidature au post de {info.post} (f/h)</li>
+            <li><strong>Référence N° </strong>: {info.ref} {info.org}</li>
+            <li>{info.greet}</li>
+            {content.map((item) => 
+                <li><p>{item}</p></li>
+            )}
+        </ul>
+        <ul class="section-footer">
+            {sign.map((item) =>
+                <li>{item}</li>
+            )}
+        </ul>
+    </section>
+</Layout>
+
+<style>
+    ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .section-header{
+        /* background-color: aqua; */
+        text-align: end;
+    }
+    .section-body{
+        text-align: justify;
+    }
+    ul:first-child li:first-child{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        span:first-child{
+            font-style: italic;
+            color: var(--colorW-20);
+        }
+    }
+    ul:first-child li:last-child{
+        font-style: italic;
+        color: var(--colorW-20);
+        margin-bottom: 1rem;
+    }
+    ul:nth-child(2) li:nth-child(3){
+        padding: 1rem 0;
+    }
+    ul:last-child{
+        text-align: end;
+    }
+    ul:last-child li:first-child{
+        text-align: start;
+        margin-bottom: 1rem;
+    }
+    ul:last-child li:nth-child(2){
+        margin-bottom: 1rem;
+    }
+    ul:last-child li:last-child{
+        color: var(--colorW-20);
+        font-style: italic;
+    }
+    /* Medium devices (landscape phones, 576px and up) */
+    @media screen and (max-width: 575.98px) {
+        section{
+            padding: 0.8rem 0.8rem 0.4rem 0.8rem;
+        }
+        ul:first-child{
+            text-align: start;
+        }
+    }
+    /* `lg` applies to medium devices (tablets, less than 992px) */
+    @media screen and (min-width: 575.98px) {
+        section{
+            padding: 1rem 2rem 0.5rem 2rem;
+        }
+    }
+    /* `md` applies to small devices (landscape phones, less than 768px) */
+    @media screen and (min-width: 767.98px) {
+        section{
+            padding: 4rem 0rem 3rem 5rem;
+            
+        }
+     }
+</style>
