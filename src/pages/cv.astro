@@ -1,0 +1,270 @@
+---
+import Layout from "../layouts/Layout.astro";
+const title = "Curriculum Vitae";
+const objectifs = {
+    title: "Objectifs",
+    content: [
+        "Rester à jour avec les nouvelles technologies et les tendances émergentes dans le développement Web.",
+        "Développer mes compétences en résolution de problèmes en travaillant sur des projets réels et en cherchant des solutions à des défis techniques.",
+        "Travailler sur de projets en acquérant de l'expérience pratique à la fois en développement Front-End et Back-End pour devenir un développeur Full Stack compétant et polyvalent."
+    ]
+}
+const experiences = {
+    title:  "Expériences Professionnelles",
+    content: [
+        {
+            carrier: "Développeur Web",
+            where: "Auto-apprentissage",
+            post: "Maîtrise des langages de programmation",
+            city: "Bruxelles - BE",
+            years: "2021 - 2024 (Web)",
+            info: [
+                {name: "HTML", text: "Comprendre la structure et la sémantique des éléments HTML."},
+                {name: "CSS", text: "Savoir styliser les éléments HTML en utilisant les sélecteurs, les propriétés de mise en page et les techniques de mise e forme."},
+                {name: "JavaScript", text: "Connaissances des concepts fondamentaux de la programmation JavaScript y compris les variables,les boucles, les fonctions et les objets. Cela inclut la manipulation du DOM côte client, ainsi que l'utilisation de Node.js pour le développement côté serveur."},
+                {name: "Front-End", text: "Compréhension des frameworks et des bibliothèques (Astro, Vue, Bootstrap) pour la création d'interfaces et utilisateur interactives."},
+                {name: "Back-End", text: "Utilisation des frameworks tels que Express and Node.js côté serveur."},
+                {name: "Data Base", text: "Comprendre les DB relationnelles (SQL) et no relationnelles (NoSQL) plus la conception des schémas, l'écriture des requêtes SQL, ORMs avec MongoDB et MySQL."},
+                {name: "Git & GitHub", text: "Utilisation du système de contrôle de versions Git pour la gestion diu code source, le suivi des version avec d'autres développeurs."},
+                {name: "Astro", text: "Gagner du temps et mis en page, en pages réutilisables en rédigent les contenus des fichiers (.md et .json). \n Déployer des applications sur des serveurs en utilisant des services d'hébergement comme GitHub, Netlify"},
+
+            ]
+        },
+        {
+            carrier: "Back-End Développeur",
+            where: "Euclides",
+            post: "Charge du projet Bureau à Louer",
+            city: "Bruxelles - BE",
+            years: "2008 - 2010 (Web)",
+            info: [
+                {name: "Back-end", text: "Conception et déploiement d’un site web avec les technologies (Symfony, PHP, MySQL)."},
+                {name: "Cyber Cafe", text: "Animation d’un parque informatique pour personnes âgés."},
+                {name: "IT", text: "Installation, dépannage et entretiens des ordinateurs de bureau."},
+            ]
+        },
+        {
+            carrier: "Flash Développeur",
+            where: "Ink Studio",
+            post: "Charge du projet animé en Flash",
+            city: "Saint-Gilles - BE",
+            years: "2008 - 2008 (Web)",
+            info: [
+                {name: "Flash", text: "Conception et intégration des sites Web en Flash (Adobe)."},
+                {name: "ActionScript", text: "Programmation Flash en langage native ActionScript."},
+                {name: "Serveur", text: "Déploiement du site au server avec l’app File Zille."},
+            ]
+        }
+    ]
+}
+const formations = {
+    title: "Études et Formations",
+    content:[
+        {
+            year: "2004-2006",
+            name: "Développeur Web",
+            cole: "IEPS",
+            citadel: "Evere"
+        },
+        {
+            year: "2004-2005",
+            name: "Web Designer",
+            cole: "EPFC2",
+            citadel: "Ixelles"
+        },
+        {
+            year: "2004-2005",
+            name: "Multimédia",
+            cole: "EPFC7",
+            citadel: "Ixelles"
+        },
+        {
+            year: "2002-2003",
+            name: "DAO : 2D - 3D",
+            cole: "EDPS",
+            citadel: "Uccle"
+        },
+        {
+            year: "2000-2001",
+            name: "Équivalence",
+            cole: "CFDB",
+            citadel: "Bruxelles"
+        },
+        {
+            year: "1984-1991",
+            name: "CESS Général",
+            cole: "CJFM",
+            citadel: "Équateur"
+        },
+    ]
+}
+const languages = {
+    title: "Langues",
+    content: [
+        {
+            name: "Français",
+            speak: "Couramment utilisé."
+        },
+        {
+            name: "Anglais",
+            speak: "Niveau technique."
+        },
+        {
+            name: "Espagnol",
+            speak: "Langue maternelle."
+        },
+    ]
+}
+const hobbies = {
+    title: "Loisir",
+    content: [
+        {name: "Musique", text: "Jouer des instruments de musique comme la guitare et charango."},
+        {name: "Arts créatifs", text: "Dessiner, peindre, expression artistiques pour me détendre et stimuler ma créativité en dehors du codage."},
+        {name: "Tutos", text: "Suivre des tutorials et regarder des videos pour rester á jour avec les dernières technologies et tendances dans le domaine du développent web."},
+
+    ]
+}
+---
+
+<Layout title={title}>
+    <section class="col-lg-9">
+        <ul class="section-body">
+            <li><h5>{objectifs.title}</h5></li> 
+            <li>
+                <ul>
+                    {objectifs.content.map((item) => <li>{item}</li> )}
+                </ul>
+            </li>
+        </ul>
+        <ul class="section-body">
+            <li><h5>{experiences.title}</h5></li> 
+            <li>
+                {experiences.content.map((item) => 
+                    <ul>
+                        <li><h6>{item.carrier}</h6><span>{item.years}</span></li>
+                        <li><span>{item.where}</span> <span>{item.post}</span> <span>{item.city}</span></li>
+                        {item.info.map((i) => <li><strong>{i.name}</strong>: {i.text}</li> )}
+                    </ul>
+                )}
+
+            </li>
+        </ul>
+        <ul class="section-body">
+            <li><h5>{formations.title}</h5></li>
+            <li>
+                <table class="section-body table table-striped mb-0">            
+                    <tbody>
+                        {formations.content.map((item) => 
+                        <tr>
+                            <td>{item.year}</td>
+                            <td>{item.name}</td>
+                            <td>{item.cole}</td>
+                            <td>{item.citadel}</td>
+                        </tr>
+                        )}
+                    </tbody>
+                </table>
+            </li>
+        </ul>
+        <ul class="section-body">
+            <li><h5>{languages.title}</h5></li>
+            <li>
+                <ul>
+                    {languages.content.map((item) =>
+                        <li><span><strong>{item.name}</strong></span>: <span>{item.speak}</span></li>
+                    )}
+                </ul>
+            </li>
+        </ul>
+        <ul class="section-body">
+            <li><h5>{hobbies.title}</h5></li>
+            <li>
+                <ul>
+                    {hobbies.content.map((item) =>
+                        <li><span><strong>{item.name}</strong></span>: <span>{item.text}</span></li>
+                    )}
+                </ul>
+            </li>
+        </ul>
+    </section>
+</Layout>
+
+<style>
+    section{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    ul{
+        border: 1px solid var(--colorW-60);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border-radius: 0.3rem;
+        padding-bottom: 0.3rem;
+    }
+    ul li{
+        padding: 0rem 1rem;
+    }
+    ul li:first-child h5{
+        background-color: var(--colorW-60);
+        padding: 0.5rem 1rem;
+        border-radius: 0.3rem 0.3rem 0 0;
+        font-weight: 300;
+        width: 100%;
+    }
+    ul li:first-child{
+        padding: 0;
+        padding-right: 0;
+    }
+    ul li:last-child{
+        ul{
+            list-style: circle;
+            border: 0;
+            li{
+                margin-left: 1rem;
+                padding: 0;
+            }
+        }
+    }
+
+    ul:nth-child(2){
+        li:first-child{
+            display: flex;
+            justify-content: space-between;
+            text-transform: uppercase;
+            margin-bottom: 0;
+            span:last-child{
+                text-transform: capitalize;
+                font-style: italic;
+                color: var(--colorW-20);
+                font-size: 0.9rem;
+            }
+        }
+        li:last-child{
+            padding: 0;
+            ul{
+                list-style: none;
+                margin-bottom: 1rem;
+                padding-right: 1rem;
+
+                li:nth-child(2){
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    font-weight: bold;
+                }
+            }
+            ul:last-child{
+                margin-bottom: 0;
+            }
+        }
+     
+    }
+
+    @media screen and (min-width: 991.98px) {
+        section{
+            padding: 0;
+            padding-left: 1rem;  
+        }
+    }
+</style>
