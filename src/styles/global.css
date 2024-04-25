@@ -1,0 +1,28 @@
+:root{
+    --colorW-100: #ffffff;
+    --colorW-80: #e7ebed;
+    --colorW-60: #cfd7dc;
+    --colorW-40: #b6c3ca;
+    --colorW-20: #9eafb9;
+    --colorWB: #869ba7;
+    --colorB-20: #6b7c86;
+    --colorB-40: #505d64;
+    --colorB-60: #363e43;
+    --colorB-80: #1b1f21;
+    --colorB-100: #000000;
+}
+*{box-sizing: border-box;}
+html{padding: 1rem 0; padding-top: 0;}
+body{background: var(--colorW-60);}
+main>.container{
+    box-shadow: 1px 1px 15px var(--colorB-20);
+    padding: 0.5rem;
+    background: var(--colorW-100);
+    border-radius: 0.2rem;
+}
+aside section{
+    height: 100%;
+    background-color: var(--colorW-60);
+    height: 100vh;
+}
+
