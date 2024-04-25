@@ -1,0 +1,75 @@
+---
+const {title,stat} = Astro.props;
+const user = {
+    img: "/../moi.png",
+    firstName: "jesús",
+    surname: "córdova",
+    post: "front-end",
+    diploma: "Développeur Web"
+};
+let es = "d-none";
+(title !== "Lettre de Motivation") ? es= es : es = "";
+---
+
+<div class="user info">
+    <div class="info-header">
+        <img class="img-fluid img-thumbnail" src="../petros.jpg" alt={user.surname}>
+    </div>
+    <div class="info-body">
+        <h1><span>{user.firstName}</span> <span>{user.surname}</span></h1>
+		<h3>{user.post}</h3>
+    </div>
+    <div class="info-footer">
+        <a href="mailto:jescordova@hotmail" class=`btn-contact ${es}`>Contact{es}</a>
+    </div>
+</div>
+
+<style>
+    .info{
+        text-align: center;
+        color: var(--colorB-40);
+    }
+    .info-header{
+        padding: 0.5rem;
+        img{
+            border-radius: 100%;
+            box-shadow: 1px 1px 15px var(--colorB-20);
+        }
+    }
+    .info-body{
+        text-transform: capitalize;
+        h3{
+            font-weight: lighter;
+            font-size: 1.5rem;
+        }
+    }
+    span{
+        font-weight: lighter;
+    }
+    span:last-child{
+        color: var(--colorB-40);
+        /* color: orange; */
+        text-shadow: 0 0 0px var(--colorB-100);
+        font-weight: bolder;
+    }
+    .info-footer{
+        display: flex;
+        justify-content: center;
+        a{
+            display: block;
+            font-size: 1.2rem;
+            text-decoration: none;
+            background-color: var(--colorB-40);
+            border-radius: 0.3rem;
+            width: 150px;
+            padding: 0.2rem 1rem;
+            color: var(--colorW-80);
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        a:hover{
+            background-color: var(--colorB-20);
+            color: var(--colorW-100);
+        }
+    }
+</style>
