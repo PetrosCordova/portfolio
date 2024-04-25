@@ -1,0 +1,77 @@
+---
+const {title} = Astro.props;
+---
+
+<div class="container">
+    <div class="row">
+        <ul class="nav-links">
+            {title === "Lettre de Motivation"
+                ?
+                    <li>
+                        <a href="/">{title}</a>
+                        <a href="/cv/" title="Curriculum Vitae"><i class="fa-solid fa-file-invoice"></i></a>
+                    </li>
+                :
+                    <li>
+                        <a href="/cv/">{title}</a>
+                        <a href="/" title="Lettre de Motivation"><i class="fa-solid fa-file-lines"></i></a>
+                    </li>
+            }
+            <li><a 
+                class="d-lg-none" 
+                data-bs-toggle="offcanvas"
+                href="#offcanvasExample"
+                role="button"
+                aria-controls="offcanvasExample"
+                ><i class="fa-solid fa-bars"></i></a>
+            </li>
+        </ul>
+
+    </div>
+</div>
+
+<style>
+    .nav-links{
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 0.1rem;
+    }
+    li{padding: 0.6rem 0rem;}
+    li:first-child{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    a{
+        display: block;
+        text-decoration: none;
+        padding: 0.4rem 0.8rem;
+        border-radius: 0.3rem;
+        border: 1px solid var(--colorW-20);
+        color: var(--colorB-40);
+        transition: all 0.3s ease;
+        background-color: var(--colorW-80);
+        i{
+            font-size: 1.5rem;
+            padding-top: 0.2rem;
+        }
+    }
+    a:hover{
+        background-color: var(--colorB-40);
+        color: var(--colorW-80)
+    }
+    li:first-child{
+        a:first-child{
+            background-color: inherit;
+            border: 0;
+        }
+        a:first-child:hover{
+            color: var(--colorB-20);
+        }
+    }
+</style>
