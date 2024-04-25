@@ -1,57 +1,71 @@
 ---
 const {title,stat} = Astro.props;
-const skills = [
-    {name:"langues", content: ["html","css","javaScript","php"]},
-    {name:"libraries", content: ["github","markdown","json"]},
-    {name:"frameworks", content: ["astro","vue","express","node","bootstrap"]},
-    {name:"graphisme", content: ["photoshop","illustrator","gimp"]},
-    {name:"data base", content: ["mongoDB","mysql"]}
-]
+const skills = {
+    header: {
+        name: "competences-header",
+        title: "compétences"
+    },
+    body: {
+        name: "competences-body",
+        items: [
+            {name:"langues", content: ["html","css","javaScript","php"]},
+            {name:"libraries", content: ["github","markdown","json"]},
+            {name:"frameworks", content: ["astro","vue","express","node","bootstrap"]},
+            {name:"graphisme", content: ["photoshop","illustrator","gimp"]},
+            {name:"data base", content: ["mongoDB","mysql"]}
+        ]
+    }
+}
+
 ---
 
-<ul class={stat}>
-    {skills.map((item) => 
-        <li class="header"><h6>{item.name}</h6></li>
-        <li class="body">
-            <ul>
-                {item.content.map((i) =>
-                    <li><a class="nav-link disabled" aria-disabled="true" href="#">{i}</a></li>
-                )}
-            </ul>
-        </li>
-    )}
+<ul class=`skills ${stat}`>
+    <li class={skills.header.name}><h5>{skills.header.title}</h5></li>
+    <li class={skills.body.name}>
+        <ul class="skills-items">
+            {skills.body.items.map((item) =>
+            <li><h6>{item.name}</h6></li>
+            <li class="skills-content">
+                <ul class="content">
+                    {item.content.map((i) =>
+                        <li><a class="nav-link disabled" aria-disabled="true" href="#">{i}</a></li>
+                     )}
+                </ul>
+            </li>
+            )}
+        </ul>
+    </li>
 </ul>
 
 <style>
-    ul{
-        padding: 0;
-        margin: 0;
+    .skills{
         list-style: none;
-        .header{
-            background-color: var(--colorW-40);
-            padding: 0.3rem 0.5rem;
-            border-radius: 0.3rem 0.3rem 0 0;
-            border: 1px dotted var(--colorW-20);
-            margin-top: 1rem;
-            h6{
-                margin-bottom: 0;
-                text-transform: capitalize;
-            }
-        }
-        .body{
-            ul{
-                border: 1px dotted var(--colorB-20);
-                background-color: var(--colorW-80);
-                border-radius: 0 0 0.3rem 0.3rem;
-                text-transform: capitalize;
-                li{
-                    padding-left: 0.5rem;
-                    padding-bottom: 0;
-                }
-                li:last-child{
-                    padding-bottom: 0.5rem;
-                }
-            }
-        }
+        padding: 0;
+        border: 1px solid var(--colorW-20);
+        border-radius: 0.3rem;
+    }
+    h5{
+        border-radius: 0.3rem 0.3rem 0 0;
+        text-transform: capitalize;
+        background-color: var(--colorB-40);
+        padding: 0.5rem;
+        color: var(--colorW-80)
+    }
+    .skills-items{
+        list-style: none;
+        padding: 0;
+        text-transform: capitalize;
+    }
+    h6{
+        padding-left: 0.5rem;
+        text-transform: uppercase;
+        font-weight: lighter;
+        color: var(--colorB-40)
+    }
+    .skills-content{
+        padding-bottom: 1rem;
+    }
+    .content{
+        padding-left: 2rem;
     }
 </style>
