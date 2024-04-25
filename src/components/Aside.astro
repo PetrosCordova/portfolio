@@ -1,0 +1,38 @@
+---
+import Contacts from "./Contacts.astro";
+import Skills from "./Skills.astro";
+import User from "./User.astro";
+
+const {title} = Astro.props;
+let stat = "d-none";
+(title === "Lettre de Motivation") ? stat= stat : stat = "";
+---
+
+<aside 
+    class="offcanvas-lg offcanvas-end as col-lg-3 overflow-scroll"
+    tabindex="-1"
+    id="offcanvasExample"
+    aria-labelledby="offcanvasExampleLabel"
+>
+    <section>
+        <div class="section-header">
+            <div class="offcanvas-header"></div>
+        </div>
+        <div class="section-body">
+            <User title={title} stat={stat}/>
+            <Contacts title={title} stat={stat}/>
+            <Skills title={title} stat={stat}/>
+        </div>
+        <div class="section-footer"></div>
+    </section>
+</aside>
+
+<style>
+    aside{
+        background-color: var(--colorW-60);
+    }
+    section{
+        padding: 0.5rem;
+        height: 100%;
+    }
+</style>
